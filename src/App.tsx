@@ -1,12 +1,15 @@
 // https://dictionaryapi.dev/
 
 import HomeDetails from "./components/HomeDetails";
+import { DictionaryProvider } from "./contexts/DictionaryContext";
 
 function App() {
   return (
-    <main className="max-w-[80rem] mx-auto">
-      <HomeDetails />
-    </main>
+    <DictionaryProvider>
+      <main className="mx-auto min-h-[100dvh] max-w-[80rem]">
+        <HomeDetails />
+      </main>
+    </DictionaryProvider>
   );
 }
 
