@@ -41,7 +41,7 @@ Users should be able to:
 - CSS Grid
 - TypeScript
 - [React](https://reactjs.org/) - JS library
-- [TailwindCSS](hhttps://tailwindcss.com/) - For styles
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
 
 ## Author
 
