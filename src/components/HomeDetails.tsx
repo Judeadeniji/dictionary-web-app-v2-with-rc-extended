@@ -12,8 +12,8 @@ import WordMeaningBox from "./WordMeaningBox";
 function HomeDetails() {
   const { isLoading, dictionaryData } = useDictionary();
   const { isDarkMode } = useDisplay();
-
   const { meanings } = dictionaryData?.[0] || {};
+
   return (
     <section className="mx-auto min-h-[100dvh] max-w-[80rem] px-8">
       <Header />
@@ -40,7 +40,7 @@ function HomeDetails() {
           </section>
           <SourceSection />
         </>
-      ) : dictionaryData?.title !== "No Definitions Found" ? (
+      ) : dictionaryData.length === 0 ? (
         <StartScreen />
       ) : (
         <ErrorScreen />

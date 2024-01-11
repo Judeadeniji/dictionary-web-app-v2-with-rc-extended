@@ -39,11 +39,10 @@ export type WordData = {
 };
 
 type DictionaryContextProps = {
-  dictionaryData: WordData[]; // Adjust the type based on the actual API response structure
+  dictionaryData: WordData[];
   inputValue: string;
   setInputValue: (inputValue: string) => void;
   isLoading: boolean;
-  // fetchData: (inputValue: string) => void;
 };
 
 const DictionaryContext = createContext<DictionaryContextProps | undefined>(
