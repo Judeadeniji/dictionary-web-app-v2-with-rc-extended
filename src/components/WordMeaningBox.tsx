@@ -11,7 +11,6 @@ function WordMeaningBox({
   const { isDarkMode } = useDisplay();
   const { setInputValue } = useDictionary();
 
-
   return (
     <div>
       <div className="mobile:py-12 flex items-center gap-8 py-16">
@@ -62,7 +61,7 @@ function WordMeaningBox({
             <p className="text-a445ed mobile:text-[1.6rem] flex flex-wrap text-[2rem] font-bold">
               {synonyms.map((syn, index) => (
                 <span
-                  key={syn}
+                  key={syn + index}
                   className="cursor-pointer pr-2 hover:underline"
                   onClick={() => setInputValue(syn)}
                 >
@@ -80,7 +79,7 @@ function WordMeaningBox({
             <p className="text-a445ed mobile:text-[1.6rem] flex flex-wrap text-[2rem] font-bold">
               {antonyms.map((antonym, index) => (
                 <span
-                  key={antonym}
+                  key={antonym + index}
                   className="cursor-pointer pr-2 hover:underline"
                   onClick={() => setInputValue(antonym)}
                 >

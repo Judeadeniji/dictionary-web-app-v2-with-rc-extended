@@ -63,11 +63,9 @@ function DictionaryProvider({ children }: { children: React.ReactNode }) {
           `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`,
         );
         const data = await response.json();
-        console.log(data);
         setDictionaryData(data);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching data:", error);
         setIsLoading(false);
       }
     }
@@ -77,7 +75,7 @@ function DictionaryProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <DictionaryContext.Provider
-      value={{ dictionaryData, setInputValue, isLoading,inputValue }}
+      value={{ dictionaryData, setInputValue, isLoading, inputValue }}
     >
       {children}
     </DictionaryContext.Provider>
