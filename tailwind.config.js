@@ -13,11 +13,15 @@ export default {
       },
       boxShadow: {
         "white-sh": "0px 5px 30px 0px rgba(0, 0, 0, 0.10)",
+        "purple-sh": " 0px 5px 30px 0px #A445ED",
       },
       fontFamily: {
         "sans-serif": ["Inter", " sans-serif"],
         serif: ["Lora", "serif"],
         mono: ["Inconsolata", "monospace"],
+      },
+      screens: {
+        mobile: { max: "37.5em" },
       },
     },
   },

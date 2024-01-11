@@ -16,7 +16,14 @@ function ThemeChangerBox() {
             : "before:translate-x-0"
         } `}
       ></div>
-      <img src="./icon-moon.svg" alt="moon" className="cursor-pointer" />
+      {/* <img src="./icon-moon.svg" alt="moon" className="cursor-pointer" /> */}
+      <svg
+        className={`h-[2.2rem] w-[2.2rem] transition-all duration-500 ${
+          isDarkMode ? "stroke-a445ed" : "stroke-[#838383]"
+        }`}
+      >
+        <use xlinkHref="./icon-moon.svg#moon"></use>
+      </svg>
     </div>
   );
 }

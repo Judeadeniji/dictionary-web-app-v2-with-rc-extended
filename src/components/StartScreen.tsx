@@ -1,10 +1,17 @@
+import { useDisplay } from "../contexts/DisplayContext";
 import Logo from "./Logo";
 
 function StartScreen() {
+  const { isDarkMode } = useDisplay();
+
   return (
     <div className="flex flex-col items-center justify-center gap-4 px-12 pt-28 text-center">
       <Logo />
-      <h1 className="text-2D2D2D pt-12 text-[2.4rem] font-bold">
+      <h1
+        className={`text-2D2D2D pt-12 text-[2.4rem] font-bold transition-all duration-500 ${
+          isDarkMode ? "text-white" : "text-2D2D2D"
+        }`}
+      >
         Welcome to Toyan's Dictionary
       </h1>
       <p className="pt-3 text-[1.8rem] text-757575">

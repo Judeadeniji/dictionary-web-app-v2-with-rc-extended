@@ -1,4 +1,5 @@
 import { Meaning } from "../contexts/DictionaryContext";
+import { useDisplay } from "../contexts/DisplayContext";
 import WordMeaningItem from "./WordMeaningItem";
 
 function WordMeaningBox({
@@ -7,13 +8,23 @@ function WordMeaningBox({
   partOfSpeech,
   synonyms,
 }: Meaning) {
+  const { isDarkMode } = useDisplay();
+
   return (
     <div>
       <div className="flex items-center gap-8 py-16">
-        <h2 className="text-2D2D2D text-[2.4rem] font-bold italic ">
+        <h2
+          className={`text-[2.4rem] font-bold italic transition-all duration-500 ${
+            isDarkMode ? "text-white" : "text-2D2D2D"
+          }`}
+        >
           {partOfSpeech}
         </h2>
-        <div className="bg-e9e9e9 h-[0.1rem] w-full"></div>
+        <div
+          className={`h-[0.1rem] w-full transition-all duration-500 ${
+            isDarkMode ? "bg-[#3a3a3a]" : "bg-e9e9e9"
+          }`}
+        ></div>
       </div>
       <div className="space-y-10">
         <h3 className="text-[2rem] text-757575">Meaning</h3>

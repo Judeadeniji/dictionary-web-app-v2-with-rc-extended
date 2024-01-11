@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type DictionaryContextProps = {
   font: string;
@@ -12,6 +12,14 @@ const DisplayContext = createContext<DictionaryContextProps | null>(null);
 function DisplayProvider({ children }: { children: React.ReactNode }) {
   const [font, setFont] = useState<string>("sans-serif");
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    );
+
+    setIsDarkMode(darkModeMediaQuery.matches);
+  }, []); // Run this effect only once during component mount
 
   return (
     <DisplayContext.Provider

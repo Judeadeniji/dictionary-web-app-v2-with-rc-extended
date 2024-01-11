@@ -7,7 +7,7 @@ import { useDisplay } from "../contexts/DisplayContext";
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const { setFont } = useDisplay();
+  const { setFont, isDarkMode } = useDisplay();
 
   function closeNavBox() {
     setIsNavOpen((prev) => !prev);
@@ -23,9 +23,15 @@ function Header() {
         <ThemeChangerBox />
 
         {isNavOpen && (
-          <div className="text-2D2D2D shadow-white-sh absolute -left-[6rem] top-[5rem] flex w-[18rem] flex-col gap-5 rounded-[1.6rem] bg-white p-[2.4rem] text-[1.8rem] leading-[2.4rem]">
+          <div
+            className={`absolute -left-[6rem] top-[5rem] flex w-[18rem] flex-col gap-5 rounded-[1.6rem]  p-[2.4rem] text-[1.8rem] leading-[2.4rem] ${
+              isDarkMode
+                ? "shadow-purple-sh bg-[#1f1f1f] text-white"
+                : "shadow-white-sh text-2D2D2D bg-white"
+            }`}
+          >
             <span
-              className="text-2D2D2D hover:text-a445ed font-sans-serif cursor-pointer text-[1.8rem] font-bold leading-[2.4rem]"
+              className="hover:text-a445ed font-sans-serif cursor-pointer text-[1.8rem] font-bold leading-[2.4rem]"
               onClick={() => {
                 closeNavBox();
                 setFont("sans-serif");
@@ -34,7 +40,7 @@ function Header() {
               Sans Serif
             </span>
             <span
-              className="text-2D2D2D hover:text-a445ed cursor-pointer font-serif text-[1.8rem] font-bold leading-[2.4rem]"
+              className="hover:text-a445ed cursor-pointer font-serif text-[1.8rem] font-bold leading-[2.4rem]"
               onClick={() => {
                 closeNavBox();
                 setFont("serif");
@@ -43,7 +49,7 @@ function Header() {
               Serif
             </span>
             <span
-              className="text-2D2D2D hover:text-a445ed cursor-pointer font-mono text-[1.8rem] font-bold leading-[2.4rem]"
+              className="hover:text-a445ed cursor-pointer font-mono text-[1.8rem] font-bold leading-[2.4rem]"
               onClick={() => {
                 closeNavBox();
                 setFont("mono");

@@ -14,7 +14,7 @@ function HomeDetails() {
   const { meanings, title } = dictionaryData?.[0] || {};
   console.log(title);
   return (
-    <section>
+    <section className="mx-auto min-h-[100dvh] max-w-[80rem] px-8">
       <Header />
       <InputSection />
       {isLoading ? (
@@ -40,12 +40,6 @@ function HomeDetails() {
       ) : (
         <ErrorScreen />
       )}
-
-      {/* {isLoading ? (
-        <Loader />
-      ) : (
-        dictionaryData?.title === "No Definitions Found" && <ErrorScreen />
-      )} */}
     </section>
   );
 }

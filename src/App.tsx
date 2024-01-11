@@ -1,11 +1,9 @@
-// https://dictionaryapi.dev/
-
 import HomeDetails from "./components/HomeDetails";
 import { DictionaryProvider } from "./contexts/DictionaryContext";
 import { useDisplay } from "./contexts/DisplayContext";
 
 function App() {
-  const { font } = useDisplay();
+  const { font, isDarkMode } = useDisplay();
 
   const serifFont = font === "serif" ? "font-serif" : "";
   const sansFont = font === "sans-serif" ? "font-sans-serif" : "";
@@ -14,7 +12,9 @@ function App() {
   return (
     <DictionaryProvider>
       <main
-        className={`mx-auto min-h-[100dvh] max-w-[80rem] ${serifFont} ${sansFont} ${monoFont} `}
+        className={` ${serifFont} ${sansFont} ${monoFont} ${
+          isDarkMode ? "bg-[#050505]" : "bg-white"
+        } transition-all duration-500 `}
       >
         <HomeDetails />
       </main>
