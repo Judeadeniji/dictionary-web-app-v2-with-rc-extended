@@ -13,7 +13,7 @@ function FontChangerBox({ closeNavBox }: FontChangerBoxProps) {
       onClick={closeNavBox}
     >
       <span
-        className={`text-[1.8rem] font-bold capitalize leading-[2.4rem] transition-all duration-500 ${
+        className={`mobile:text-[1.4rem] text-[1.8rem] font-bold capitalize leading-[2.4rem] transition-all duration-500 ${
           isDarkMode ? "text-white" : "text-2D2D2D"
         }`}
       >

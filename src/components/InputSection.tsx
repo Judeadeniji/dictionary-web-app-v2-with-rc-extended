@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDictionary } from "../contexts/DictionaryContext";
 import { useDisplay } from "../contexts/DisplayContext";
 
@@ -7,7 +7,7 @@ function InputSection() {
   const [isInputEmpty, setIsInputEmpty] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false);
 
-  const { setInputValue } = useDictionary();
+  const { setInputValue, inputValue } = useDictionary();
   const { isDarkMode } = useDisplay();
 
   function searchWord(event: React.FormEvent<HTMLFormElement>) {
@@ -20,6 +20,10 @@ function InputSection() {
       setIsInputEmpty(false);
     }
   }
+
+  useEffect(() => {
+    setSearchTerm(inputValue);
+  }, [inputValue]);
 
   return (
     <>

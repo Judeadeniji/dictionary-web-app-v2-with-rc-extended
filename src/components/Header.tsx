@@ -14,7 +14,7 @@ function Header() {
   }
 
   return (
-    <header className="flex justify-between px-12 py-[5.5rem]">
+    <header className="mobile:px-0 flex justify-between px-12 py-[5.5rem]">
       <Logo />
 
       <nav className="relative flex items-center gap-8">

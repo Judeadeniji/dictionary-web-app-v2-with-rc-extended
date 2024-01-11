@@ -40,6 +40,7 @@ export type WordData = {
 
 type DictionaryContextProps = {
   dictionaryData: WordData[]; // Adjust the type based on the actual API response structure
+  inputValue: string;
   setInputValue: (inputValue: string) => void;
   isLoading: boolean;
   // fetchData: (inputValue: string) => void;
@@ -76,7 +77,7 @@ function DictionaryProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <DictionaryContext.Provider
-      value={{ dictionaryData, setInputValue, isLoading }}
+      value={{ dictionaryData, setInputValue, isLoading,inputValue }}
     >
       {children}
     </DictionaryContext.Provider>

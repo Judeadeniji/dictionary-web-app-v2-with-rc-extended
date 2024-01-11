@@ -8,7 +8,7 @@ function SourceSection() {
   const { isDarkMode } = useDisplay();
 
   return (
-    <footer className="flex items-center gap-8 py-8">
+    <footer className="mobile:flex-col mobile:items-start mobile:gap-2 flex items-center gap-8 py-8">
       <p className="text-[1.4rem] text-757575 underline">Source</p>
       <button>
         <a
