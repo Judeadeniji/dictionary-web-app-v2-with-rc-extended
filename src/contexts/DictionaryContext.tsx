@@ -38,12 +38,6 @@ export type WordData = {
   title: string;
 };
 
-type WordObj = {
-  title: string;
-  message: string;
-  resolution: string;
-};
-
 type DictionaryContextProps = {
   dictionaryData: WordData[]; // Adjust the type based on the actual API response structure
   setInputValue: (inputValue: string) => void;

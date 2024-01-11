@@ -14,6 +14,11 @@ export default {
       boxShadow: {
         "white-sh": "0px 5px 30px 0px rgba(0, 0, 0, 0.10)",
       },
+      fontFamily: {
+        "sans-serif": ["Inter", " sans-serif"],
+        serif: ["Lora", "serif"],
+        mono: ["Inconsolata", "monospace"],
+      },
     },
   },
   plugins: [],
