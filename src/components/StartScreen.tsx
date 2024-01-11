@@ -5,7 +5,7 @@ function StartScreen() {
   const { isDarkMode } = useDisplay();
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 px-12 pt-28 text-center">
+    <div className="mobile:px-0 flex flex-col items-center justify-center gap-4 px-12 pt-28 text-center">
       <Logo />
       <h1
         className={`text-2D2D2D pt-12 text-[2.4rem] font-bold transition-all duration-500 ${

@@ -3,7 +3,7 @@ import { useDisplay } from "../contexts/DisplayContext";
 function ErrorScreen() {
   const { isDarkMode } = useDisplay();
   return (
-    <div className="flex flex-col items-center justify-center gap-10 px-12 pt-28 text-center">
+    <div className="mobile:px-0 flex flex-col items-center justify-center gap-10 px-12 pt-28 text-center">
       <img src="./sad.png" alt="sad emoji" />
       <h1
         className={`pt-6 text-[2rem] font-bold transition-all duration-500 ${
