@@ -1,13 +1,13 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ErrorBoundary } from "rc-extended/components"
 import App from "./App.tsx";
-import "./index.css";
-import { DisplayProvider } from "./contexts/DisplayContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <DisplayProvider>
+    <ErrorBoundary fallback={e => e?.stack}>
       <App />
-    </DisplayProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
 );

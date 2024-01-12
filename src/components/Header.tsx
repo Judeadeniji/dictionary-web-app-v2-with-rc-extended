@@ -2,7 +2,7 @@ import { useState } from "react";
 import FontChangerBox from "./FontChangerBox";
 import Logo from "./Logo";
 import ThemeChangerBox from "./ThemeChangerBox";
-import { useDisplay } from "../contexts/DisplayContext";
+import { useDisplay } from "../utils";
 import { AnimatePresence, motion } from "framer-motion";
 
 function Header() {

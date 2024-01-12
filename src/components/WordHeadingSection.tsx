@@ -1,13 +1,13 @@
 import { useRef } from "react";
-import { useDictionary } from "../contexts/DictionaryContext";
-import { useDisplay } from "../contexts/DisplayContext";
+import { Show } from "rc-extended/components"
+import { useDisplay, fetchMeaning } from "../utils";
 
 function WordHeadingSection() {
   let text: string | undefined;
   let audio: string | undefined;
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const { dictionaryData } = useDictionary();
+  const { result: dictionaryData, isPending } = fetchMeaning();
   const { isDarkMode } = useDisplay();
 
   const { word, phonetics } = dictionaryData?.[0] || {};
@@ -28,7 +28,7 @@ function WordHeadingSection() {
       audioRef.current.play();
     }
   }
-
+  
   return (
     <section className="mobile:px-0 flex items-center justify-between px-12 pt-[4.5rem]">
       <div>
@@ -44,14 +44,14 @@ function WordHeadingSection() {
         </p>
       </div>
 
-      {audio && (
+      <Show when={audio}>
         <button onClick={handlePlay}>
           <svg className="mobile:w-[4.8rem] mobile:h-[4.8rem] h-[7.5rem] w-[7.5rem] rounded-full fill-[#a445ed] transition-all duration-300 hover:bg-[#8f19e8] hover:fill-white">
             <use href="./icon-play.svg#play"></use>
           </svg>
           <audio src={audio} ref={audioRef}></audio>
         </button>
-      )}
+      </Show>
     </section>
   );
 }

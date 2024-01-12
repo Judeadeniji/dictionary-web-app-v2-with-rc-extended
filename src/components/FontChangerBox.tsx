@@ -1,11 +1,11 @@
-import { useDisplay } from "../contexts/DisplayContext";
+import { useDisplay } from "../utils";
 
 type FontChangerBoxProps = {
   closeNavBox: () => void;
 };
 
 function FontChangerBox({ closeNavBox }: FontChangerBoxProps) {
-  const { font, isDarkMode } = useDisplay();
+  const { fontClass, isDarkMode } = useDisplay();
 
   return (
     <div
@@ -17,7 +17,7 @@ function FontChangerBox({ closeNavBox }: FontChangerBoxProps) {
           isDarkMode ? "text-white" : "text-2D2D2D"
         }`}
       >
-        {font}
+        {fontClass.slice(5)}
       </span>
       <img src="./icon-arrow-down.svg" alt="arrow down" />
     </div>

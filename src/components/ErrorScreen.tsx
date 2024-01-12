@@ -1,4 +1,4 @@
-import { useDisplay } from "../contexts/DisplayContext";
+import { useDisplay } from "../utils";
 
 function ErrorScreen() {
   const { isDarkMode } = useDisplay();

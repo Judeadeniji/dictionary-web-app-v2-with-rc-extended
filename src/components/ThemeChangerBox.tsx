@@ -1,10 +1,10 @@
-import { useDisplay } from "../contexts/DisplayContext";
+import { useDisplay } from "../utils";
 
 function ThemeChangerBox() {
-  const { isDarkMode, setIsDarkMode } = useDisplay();
+  const { isDarkMode, setTheme, getTheme } = useDisplay();
 
   function toggleTheme() {
-    setIsDarkMode((prevTheme) => !prevTheme);
+    setTheme(isDarkMode ? "light" : "dark");
   }
 
   return (

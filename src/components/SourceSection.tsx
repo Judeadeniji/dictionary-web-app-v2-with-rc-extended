@@ -1,8 +1,7 @@
-import { useDictionary } from "../contexts/DictionaryContext";
-import { useDisplay } from "../contexts/DisplayContext";
+import { useDisplay, fetchMeaning } from "../utils";
 
 function SourceSection() {
-  const { dictionaryData } = useDictionary();
+  const { result: dictionaryData } = fetchMeaning();
   const { sourceUrls } = dictionaryData?.[0] || {};
 
   const { isDarkMode } = useDisplay();

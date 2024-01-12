@@ -1,4 +1,4 @@
-import { useDisplay } from "../contexts/DisplayContext";
+import { useDisplay } from "../utils";
 import Logo from "./Logo";
 
 function StartScreen() {
@@ -12,7 +12,7 @@ function StartScreen() {
           isDarkMode ? "text-white" : "text-2D2D2D"
         }`}
       >
-        Welcome to Toyan's Dictionary
+        Welcome to The Dictionary
       </h1>
       <p className="pt-3 text-[1.8rem] text-757575">
         Kindly input a word into our search field to discover its comprehensive
