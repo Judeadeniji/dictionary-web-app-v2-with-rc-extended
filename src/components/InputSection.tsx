@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Show } from "rc-extended/components"
-import { useSignal, $computed } from "rc-extended/store"
+import React, { useState } from "react";
+import { useSignal } from "rc-extended/store"
 import { useDisplay, textInput } from "../utils";
 
 

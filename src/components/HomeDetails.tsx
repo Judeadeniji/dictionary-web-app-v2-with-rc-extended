@@ -1,5 +1,5 @@
 import { Switch, Match, For } from "rc-extended/components"
-import { useDisplay, fetchMeaning } from "../utils";
+import { useDisplay, fetchMeaning, type WordData } from "../utils";
 import ErrorScreen from "./ErrorScreen";
 import Header from "./Header";
 import InputSection from "./InputSection";
@@ -12,9 +12,9 @@ import WordMeaningItem from "./WordMeaningItem";
 
 
 function HomeDetails() {
-  const { isPending, isRejected, result: dictionaryData, error } = fetchMeaning("extends");
+  const { isPending, isRejected, result: dictionaryData } = fetchMeaning();
   const { isDarkMode } = useDisplay();
-  const { meanings } = dictionaryData?.[0] || {};
+  const { meanings }: WordData = dictionaryData?.[0] || {};
   
   return (
     <section className="mx-auto min-h-[100dvh] max-w-[80rem] px-8">
@@ -41,8 +41,8 @@ function HomeDetails() {
                   >
                     <WordMeaningBox.Definitions>
                       <For each={meaning.definitions || []}>
-                        {(({definition, example}) => (
-                          <WordMeaningItem key={definition.definition}>
+                        {(({definition, example}, index) => (
+                          <WordMeaningItem key={meaning.definitions[Number(index)].definition}>
                             <WordMeaningItem.Definition>
                               {definition}
                             </WordMeaningItem.Definition>
@@ -70,10 +70,12 @@ function HomeDetails() {
             <SourceSection />
           </>
         </Match>
+        
         <Match when={!dictionaryData}>
           <StartScreen />
         </Match>
-        <Match when={error}>
+        
+        <Match when={isRejected}>
           <ErrorScreen />
         </Match>
       </Switch>

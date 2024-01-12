@@ -1,6 +1,7 @@
-# Frontend Mentor - Dictionary web app solution
+# Dictionary web app solution
 
 This is a solution to the [Dictionary web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+I've taken this Frontend Mentor app to be the perfect fit as a proof of concept for RC-Extended 
 
 ## Table of contents
 
@@ -18,6 +19,7 @@ This is a solution to the [Dictionary web app challenge on Frontend Mentor](http
 Users should be able to:
 
 - Search for words using the input field
+- Have a feeling of instant response 
 - See the Free Dictionary API's response for the searched word
 - See a form validation message when trying to submit a blank form
 - Play the audio file for a word when it's available
@@ -29,21 +31,19 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Olatoyan/dictionary-web-app-v2](https://github.com/Olatoyan/dictionary-web-app-v2)
-- Live Site URL: [https://toyan-dictionary-v2.netlify.app/](https://toyan-dictionary-v2.netlify.app/)
+- Live Site URL: [https://rc-extended-dictionary-app.vercel.app/](https://toyan-dictionary-v2.netlify.app/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- Flexbox
-- CSS Grid
 - TypeScript
+- [RC-Extended](https://github.com/Judeadeniji/RC-Extended) - A supercharged library for React
 - [React](https://reactjs.org/) - JS library
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
 
 ## Author
 
-- Frontend Mentor - [@olatoyan](https://www.frontendmentor.io/profile/olatoyan)
+- Twitter - [TheLazyDev](https://www.twitter.com/feranmiwebdev)
 - Twitter - [@toyan](https://www.twitter.com/_annonnymouss_)

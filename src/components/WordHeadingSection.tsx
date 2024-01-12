@@ -1,16 +1,16 @@
 import { useRef } from "react";
 import { Show } from "rc-extended/components"
-import { useDisplay, fetchMeaning } from "../utils";
+import { useDisplay, fetchMeaning, type WordData } from "../utils";
 
 function WordHeadingSection() {
   let text: string | undefined;
   let audio: string | undefined;
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const { result: dictionaryData, isPending } = fetchMeaning();
+  const { result: dictionaryData } = fetchMeaning();
   const { isDarkMode } = useDisplay();
 
-  const { word, phonetics } = dictionaryData?.[0] || {};
+  const { word, phonetics }: WordData = dictionaryData?.[0] || {};
 
   if (phonetics) {
     phonetics.forEach((phoneticItem) => {

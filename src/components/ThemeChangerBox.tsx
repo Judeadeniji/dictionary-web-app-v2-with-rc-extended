@@ -1,7 +1,7 @@
 import { useDisplay } from "../utils";
 
 function ThemeChangerBox() {
-  const { isDarkMode, setTheme, getTheme } = useDisplay();
+  const { isDarkMode, setTheme } = useDisplay();
 
   function toggleTheme() {
     setTheme(isDarkMode ? "light" : "dark");

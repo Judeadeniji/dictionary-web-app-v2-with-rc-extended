@@ -1,5 +1,5 @@
 import { useFetch, usePreferredTheme } from "rc-extended/use"
-import  { $computed, $signal, $watch, useSignalAction, signal } from "rc-extended/store"
+import  { $computed, $watch, useSignalAction, signal } from "rc-extended/store"
 
 type License = {
   name: string;
@@ -42,9 +42,10 @@ type FontName = "serif" | "sans-serif" | "mono"
 // let's have a shared input signal in which we'll derive some computed properties in our app
 const textInput = signal("")
 
-function fetchMeaning() {
+//function fetchMeaning<T = WordData | WordData[]>() {
+function fetchMeaning<T = any>() {
   const word = $computed(() => textInput.value)
-  const fetcher = useFetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word.value)}`)
+  const fetcher = useFetch<T>(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word.value)}`)
   
   $watch(word, () => {
     if (!Boolean(word.value.trim())) return;
@@ -65,21 +66,20 @@ function useDisplay() {
   // use $computed to track all signal change and return a derived state 
   return $computed(() => {
     const isDarkMode = preferredTheme.theme === "dark"
-    const fontClass = `font-${font.value}`
+    const fontClass = `font-${font.value}` as const
     return {
       isDarkMode,
       fontClass,
       setFont,
-      getTheme: () => preferredTheme.theme,
       setTheme: preferredTheme.setTheme
-    }
+    } as const
   }).value
 }
 
 export {
-  Definition,
-  Meaning,
-  WordData,
+  type Definition,
+  type Meaning,
+  type WordData,
   fetchMeaning,
   useDisplay,
   textInput

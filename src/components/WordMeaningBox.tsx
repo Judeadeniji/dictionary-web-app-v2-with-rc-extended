@@ -1,6 +1,17 @@
 import React from "react"
-import { Show, For } from "rc-extended/components"
 import { useDisplay, type Meaning, textInput } from "../utils";
+
+type SynProp = {
+  synonym: string;
+  index: string | number;
+  len: number 
+}
+
+type AntProps = {
+  antonym: string;
+  index: string | number;
+  len: number 
+}
 
 function Antonyms({ children }: { children?: React.ReactNode }) {
   return (
@@ -16,10 +27,10 @@ function Antonyms({ children }: { children?: React.ReactNode }) {
 }
 WordMeaningBox.Antonyms = Antonyms
 
-function Antonym({ antonym, index, len }) {
+function Antonym({ antonym, index, len }: AntProps) {
   return (
     <span
-      key={antonym + index}
+      key={`${antonym}${index}`}
       className="cursor-pointer pr-2 hover:underline"
       onClick={() => textInput.value = (antonym)}
     >
@@ -43,10 +54,10 @@ function Synonyms({ children }: { children?: React.ReactNode }) {
 }
 WordMeaningBox.Synonyms = Synonyms
 
-function Synonym({ synonym, index, len }) {
+function Synonym({ synonym, index, len }: SynProp) {
   return (
     <span
-      key={synonym + index}
+      key={`${synonym}${index}`}
       className="cursor-pointer pr-2 hover:underline"
       onClick={() => textInput.value = (synonym)}
     >
@@ -68,7 +79,7 @@ WordMeaningBox.Definitions = Definitions
 function WordMeaningBox({
   partOfSpeech,
   children
-}: Meaning & { children : React.ReactNode}) {
+}: Pick<Meaning, "partOfSpeech"> & { children : React.ReactNode}) {
   const { isDarkMode } = useDisplay();
 
   return (
